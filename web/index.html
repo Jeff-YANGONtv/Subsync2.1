@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#4F46E5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Subtitle Sync — mobile-responsive subtitle editor (SRT/VTT/ASS) with real Web Audio waveform.">
+  <link rel="manifest" href="manifest.json">
+  <title>Subtitle Sync</title>
+  <style>
+    html, body { margin:0; padding:0; height:100%; background:#0f172a; }
+    #splash { position:fixed; inset:0; display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      background: linear-gradient(135deg, #4F46E5, #22D3EE);
+      color:#fff; font-family:-apple-system, sans-serif; z-index:9999;
+      transition:opacity .4s; }
+    #splash h1 { font-size:28px; margin:6px 0; }
+    .loader { width:36px; height:36px; border:4px solid rgba(255,255,255,.3);
+      border-top-color:#fff; border-radius:50%;
+      animation:spin .8s linear infinite; margin-bottom:18px; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="splash">
+    <div class="loader"></div>
+    <h1>🎬  Subtitle Sync</h1>
+    <p>Loading editor…</p>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', () => {
+      const s = document.getElementById('splash');
+      if (s) { s.style.opacity = 0; setTimeout(() => s.remove(), 500); }
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
