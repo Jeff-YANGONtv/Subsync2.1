@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'ui/editor_state.dart';
-import 'ui/screens/editor_screen.dart';
+import 'ui/screens/dashboard_screen.dart';
 import 'platform_init_stub.dart'
     if (dart.library.io) 'platform_init_native.dart';
 
@@ -19,14 +19,15 @@ class SubtitleSyncApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => EditorState(),
       child: MaterialApp(
-        title: 'Subtitle Sync',
+        title: 'YGN Subtitle Studio',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorSchemeSeed: const Color(0xFF4F46E5),
           useMaterial3: true,
+          brightness: Brightness.dark,
           fontFamily: kIsWeb ? null : 'Roboto',
         ),
-        home: const EditorScreen(),
+        home: const DashboardScreen(),
       ),
     );
   }
